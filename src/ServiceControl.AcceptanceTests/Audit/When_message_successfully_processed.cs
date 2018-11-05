@@ -16,7 +16,7 @@
     class When_message_successfully_processed : AcceptanceTest
     {
         [Test]
-        public async Task Should_list_the_endpoint_in_the_list_of_known_endpoints()
+        public async Task sShould_list_the_endpoint_in_the_list_of_known_endpoints()
         {
             List<EndpointsView> knownEndpoints = null;
 
@@ -29,7 +29,7 @@
                     knownEndpoints = result;
                     return result;
                 })
-                .Run(TimeSpan.FromSeconds(20));
+                .Run();
 
             Assert.AreEqual(context.EndpointNameOfReceivingEndpoint, knownEndpoints.Single(e => e.Name == context.EndpointNameOfReceivingEndpoint).Name);
             Assert.AreEqual(Environment.MachineName, knownEndpoints.Single(e => e.Name == context.EndpointNameOfReceivingEndpoint).HostDisplayName);
